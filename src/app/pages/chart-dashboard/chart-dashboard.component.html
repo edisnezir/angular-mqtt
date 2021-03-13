@@ -1,0 +1,193 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Client Status</h6>
+          <dx-pie-chart palette="darkViolet" [dataSource]="connectionStats">
+            <dxi-series argumentField="title" valueField="value">
+              <dxo-label [visible]="true">
+                <dxo-connector [visible]="true" [width]="1"></dxo-connector>
+              </dxo-label>
+            </dxi-series>
+            <dxo-export [enabled]="false"></dxo-export>
+            <dxo-animation easing="linear" [duration]="500" [maxPointCountSupported]="100">
+            </dxo-animation>
+          </dx-pie-chart>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Clients</h6>
+          <dx-chart palette="material" [dataSource]="allMessageData">
+
+            <dxi-series valueField="connected" name="Current connected clients">
+            </dxi-series>
+            <dxi-series valueField="maxConnected" name="Maximum connected clients">
+            </dxi-series>
+            <dxi-series valueField="rejected" name="Rejected">
+            </dxi-series>
+
+            <dxo-common-series-settings #seriesSettings argumentField="time" [type]="'line'">
+            </dxo-common-series-settings>
+
+            <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">
+              <dxo-grid [visible]="true"></dxo-grid>
+            </dxo-argument-axis>
+            <dxo-legend verticalAlignment="bottom" horizontalAlignment="center" itemTextPosition="bottom">
+            </dxo-legend>
+            <dxo-export [enabled]="false"></dxo-export>
+            <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Messages</h6>
+          <dx-chart palette="material" [dataSource]="allMessageData">
+
+            <dxi-series valueField="messageSent" name="Sent">
+            </dxi-series>
+            <dxi-series valueField="messageReceived" name="Received">
+            </dxi-series>
+            <dxi-series valueField="messageDropped" name="Dropped">
+            </dxi-series>
+
+            <dxo-common-series-settings #seriesSettings argumentField="time" [type]="'line'">
+            </dxo-common-series-settings>
+
+            <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">
+              <dxo-grid [visible]="true"></dxo-grid>
+            </dxo-argument-axis>
+            <dxo-legend verticalAlignment="bottom" horizontalAlignment="center" itemTextPosition="bottom">
+            </dxo-legend>
+            <dxo-export [enabled]="false"></dxo-export>
+            <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Bytes</h6>
+          <dx-chart palette="material" [dataSource]="allMessageData">
+
+            <dxi-series valueField="messageBytesSent" name="Sent">
+            </dxi-series>
+            <dxi-series valueField="messageBytesReceived" name="Received">
+            </dxi-series>
+
+            <dxo-common-series-settings #seriesSettings argumentField="time" [type]="'line'">
+            </dxo-common-series-settings>
+
+            <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">
+              <dxo-grid [visible]="true"></dxo-grid>
+            </dxo-argument-axis>
+            <dxo-legend verticalAlignment="bottom" horizontalAlignment="center" itemTextPosition="bottom">
+            </dxo-legend>
+            <dxo-export [enabled]="false"></dxo-export>
+            <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Packets</h6>
+          <dx-chart palette="material" [dataSource]="allMessageData">
+
+            <dxi-series valueField="packetSent" name="Sent">
+            </dxi-series>
+            <dxi-series valueField="packetReceived" name="Received">
+            </dxi-series>
+
+            <dxo-common-series-settings #seriesSettings argumentField="time" [type]="'line'">
+            </dxo-common-series-settings>
+
+            <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">
+              <dxo-grid [visible]="true"></dxo-grid>
+            </dxo-argument-axis>
+            <dxo-legend verticalAlignment="bottom" horizontalAlignment="center" itemTextPosition="bottom">
+            </dxo-legend>
+            <dxo-export [enabled]="false"></dxo-export>
+            <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Subscriptions</h6>
+          <dx-chart palette="material" [dataSource]="allMessageData">
+
+            <dxi-series valueField="activeSubscriptions" name="Sent">
+            </dxi-series>
+
+            <dxo-common-series-settings #seriesSettings argumentField="time" [type]="'line'">
+            </dxo-common-series-settings>
+
+            <dxo-argument-axis [valueMarginsEnabled]="false" discreteAxisDivisionMode="crossLabels">
+              <dxo-grid [visible]="true"></dxo-grid>
+            </dxo-argument-axis>
+            <dxo-legend verticalAlignment="bottom" horizontalAlignment="center" itemTextPosition="bottom">
+            </dxo-legend>
+            <dxo-export [enabled]="false"></dxo-export>
+            <dxo-tooltip [enabled]="true"></dxo-tooltip>
+          </dx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 mt-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Logs</h6>
+          <dx-data-grid [dataSource]="allMessageData" [columnAutoWidth]="true" [columnHidingEnabled]="false"
+            [showBorders]="false" [wordWrapEnabled]="true" [height]="300">
+            <dxi-column dataField="activeSubscriptions"></dxi-column>
+            <dxi-column dataField="connected"></dxi-column>
+            <dxi-column dataField="disconnected"></dxi-column>
+            <dxi-column dataField="maxConnected"></dxi-column>
+            <dxi-column dataField="messageBytesReceived"></dxi-column>
+            <dxi-column dataField="messageBytesSent"></dxi-column>
+            <dxi-column dataField="messageDropped"></dxi-column>
+            <dxi-column dataField="messageReceived"></dxi-column>
+            <dxi-column dataField="messageSent"></dxi-column>
+            <dxi-column dataField="offlineSessions"></dxi-column>
+            <dxi-column dataField="packetReceived"></dxi-column>
+            <dxi-column dataField="packetSent"></dxi-column>
+            <dxi-column dataField="pendingMessages"></dxi-column>
+            <dxi-column dataField="rejected"></dxi-column>
+            <dxi-column dataField="retainedMessages"></dxi-column>
+            <dxi-column dataField="subscribed"></dxi-column>
+            <dxi-column dataField="unsubscribed"></dxi-column>
+            <dxi-column dataField="time"></dxi-column>
+
+            <dxo-search-panel [visible]="true"></dxo-search-panel>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-scrolling mode="virtual"></dxo-scrolling>
+            <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
+            <dxo-grouping #expand [autoExpandAll]="true"></dxo-grouping>
+          </dx-data-grid>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
