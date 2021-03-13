@@ -17,7 +17,7 @@ ng serve
 ```
 
 ### Configuration
-Do not forget set your own mqtt configuration from environment.ts.
+Do not forget set your own mqtt configuration at environment.ts.
 ````
 export const environment = {
   production: false,
@@ -27,7 +27,7 @@ export const environment = {
     topic: 'xxx',
     protocol: "wss",
     path: 'xxx',
-		port: xxxx,
+    port: xxxx,
     userName: '',
     password: '',
   }
